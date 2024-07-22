@@ -102,3 +102,15 @@ Docker Notları
 15.Port Mapping
 ---------------
 	-> docker run -p DIŞ_PORT:İÇ_PORT <image_name>
+
+16.Volume Mapping
+-----------------
+  -> docker run -v HOST_DİZİN:CONTAINER_DİZİN <image_name>
+
+17.Container/Image bilgilerini görüntülemek için
+------------------------------------------------
+  -> docker inspect <container_id>
+
+18.ENV ayarlamak
+----------------
+  -> docker run -e <env-data> <image_name>
