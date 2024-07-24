@@ -61,6 +61,7 @@ Docker Notları
 	-> docker rm <container_name>
 	-> docker rm <container_id>
 	-> docker rm <image_name>
+	-> docker rmi <image_name>
 
 	
 9.Tag ile işlem yapmak
@@ -114,3 +115,40 @@ Docker Notları
 18.ENV ayarlamak
 ----------------
   -> docker run -e <env-data> <image_name>
+
+---
+
+Docker Networking
+-----------------
+  -> Default olarak bridge network bulunmaktadır.
+  -> bridge, none, host üç çeşit network bulunmaktadır.
+  -> bridge networkde containerlar birbirine bağlanabiliyor.
+  -> bridge ile her bir container kendine ait private bir ip alır. Belli bir subnet ile.
+  -> none olursa ne dışarıdan ne de içeriden erişebilirsin. --network=none
+  -> --network=host
+  -> host network seçilirse, hostun ipsi üzerinden sadece port alarak ayağa kalkarlar.
+  -> Kullanıcı tanımlı network ile özel networkler tanımlanabilir.
+
+1.Networkleri listelemek için
+-----------------------------
+  -> docker network ls
+
+2.Network silmek için
+---------------------
+  -> docker network rm <network_name>
+
+3.Network oluşturmak
+--------------------
+  -> docker network create --driver bridge --subnet 182.18.0.0/24 --gateway 182.18.0.1 custom-network
+  -> bu network kullanan iki uygulama ayağa kaldıralım
+  -> docker run --name mongo-server --net custom-network -d mongo
+  -> docker run --net custom-network -p 3000:3000 gkandemir/todo-app
+  -> container'a name verdiğim zaman bulunduğu network içerisinde bu isimle dns tanımlaması yapılıyor.
+  -> yani todo-app içerisinden mongodb'ye bağlanmak için mongo-server:27017 şeklimde ulaşmam yeterli.
+  -> Oluşturduğumuz bu network içinde dns mongo-server'u çözümleyebiliyor.
+
+---
+
+Docker Image Oluşturma
+----------------------
+  -> 
