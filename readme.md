@@ -151,4 +151,27 @@ Docker Networking
 
 Docker Image Oluşturma
 ----------------------
-  -> 
+  - dockerfile bununduğu dizine gidilerek
+  - docker build . -t dockerhubusername/imagename:1.0.0
+  - yaparak build alınabilir.
+
+Dockerfile içeriği
+------------------
+```dockerfile
+FROM ubuntu:18.04
+RUN apt-get update
+RUN apt-get install curl -y
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash
+RUN apt-get install nodejs -y
+WORKDIR /opt/node-app
+ENV MYENV=VALUE
+COPY . /opt/node-app/
+CMD ["node", "index.js"]
+```
+
+- Burada CMD haricindeki diğer komutlar imaj oluşturulurken çalıştırılır.
+- WORKDIR verilen satırdan sonra container içindeki dizin o satırdan sonra değişmiş olur.
+- COPY komutunun ilk patametresi nokta aslında dockerfile ın bulunduğu dizini ifade ediyor.
+
+
+
