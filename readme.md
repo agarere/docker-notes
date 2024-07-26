@@ -158,6 +158,7 @@ Docker Image Oluşturma
   - dockerfile bununduğu dizine gidilerek
   - docker build . -t dockerhubusername/imagename:1.0.0
   - yaparak build alınabilir.
+	- docker push <image_name>
 
 Dockerfile içeriği
 ------------------
