@@ -116,6 +116,10 @@ Docker Notları
 ----------------
   -> docker run -e <env-data> <image_name>
 
+19.Containerın komut satırına ulaşmak
+-------------------------------------
+	-> docker exec -it <container_id_or_name> /bin/bash
+
 ---
 
 Docker Networking
