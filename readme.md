@@ -120,6 +120,14 @@ Docker Notları
 -------------------------------------
 	-> docker exec -it <container_id_or_name> /bin/bash
 
+20.Kullanılmayan tüm imajları silmek
+------------------------------------
+	-> docker image prune -a
+
+21.Docker Compose ile Durdurup Temizlemek
+------------------------------------
+	-> docker-compose down --rmi all
+
 ---
 
 Docker Networking
