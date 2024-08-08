@@ -128,6 +128,14 @@ Docker Notları
 ------------------------------------
 	-> docker-compose down --rmi all
 
+22.Docker Compose bir servis üzerinde işlem yapmak
+--------------------------------------------------
+	-> docker-compose stop <service_name>
+	-> docker rm <container_id>
+	-> docker-compose build <service_name> veya
+	-> docker-compose build --no-cache <service_name>
+	-> docker-compose up -d <service_name>
+
 ---
 
 Docker Networking
